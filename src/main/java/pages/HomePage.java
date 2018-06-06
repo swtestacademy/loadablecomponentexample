@@ -19,7 +19,7 @@ public class HomePage extends LoadableComponent<HomePage> {
     public HomePage (WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 10);
-        basePage = new BasePage(driver, wait);
+        basePage = new BasePage(driver);
     }
 
     //*********Web Elements*********

@@ -15,14 +15,14 @@ public class LoginPage extends LoadableComponent<LoginPage> {
     private WebDriver driver;
     private WebDriverWait wait;
     private BasePage page;
-    private LoadableComponent<?> parent;
+    private LoadableComponent<HomePage> parent;
     private final String loginURL = "https://www.n11.com/giris-yap";
 
     //*********Constructor*********
-    public LoginPage (WebDriver driver, LoadableComponent<?> parent) {
+    public LoginPage (WebDriver driver, LoadableComponent<HomePage> parent) {
          this.driver = driver;
          this.wait = new WebDriverWait(driver,10);
-         page = new BasePage(this.driver, this.wait);
+         page = new BasePage(this.driver);
          this.parent = parent;
     }
 
@@ -37,8 +37,7 @@ public class LoginPage extends LoadableComponent<LoginPage> {
     //We need to go to the page at load method
     @Override
     protected void load() {
-        parent.get();
-        ((HomePage) parent).goToLoginPage();
+        parent.get().goToLoginPage();
     }
 
     //We need to check that the page has been loaded.
